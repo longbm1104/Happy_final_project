@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run integration tests
-        run: npm run test-integration
+        run: npm run test-integration -- --config=./jest.config.js
 
       - name: Run end-to-end tests
         run: npm run test-e2e
