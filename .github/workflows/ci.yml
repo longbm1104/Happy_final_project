@@ -23,6 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        run: pwd
 
       - name: Run integration tests
         run: npm run test-integration -- --config=./jest.config.js
