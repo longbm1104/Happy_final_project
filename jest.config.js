@@ -3,4 +3,8 @@ module.exports = {
   testEnvironmentOptions: {
     customExportConditions: [''],
   },
+  testMatch: ['<rootDir>/src/**/*.(spec|test).[jt]s?(x)'],
+  moduleNameMapper: {
+    '\\.css$': '<rootDir>/src/__mocks__/styleMock.js'
+  },
 }
