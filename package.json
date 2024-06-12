@@ -8,7 +8,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "cy:shortcut": "cypress run --headed",
-    "test-e2e": "npm-run-all --parallel start cy:shortcut",
+    "test-e2e": "start-server-and-test start http://localhost:8080 cy:run",
     "test-integration": "jest",
     "test": "npm-run-all test:*"
   },
@@ -35,5 +35,8 @@
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/src/__mocks__/styleMock.js"
     }
+  },
+  "dependencies": {
+    "start-server-and-test": "^2.0.4"
   }
 }
