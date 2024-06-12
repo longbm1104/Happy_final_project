@@ -7,7 +7,7 @@
     "start": "webpack serve --open",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:shortcut": "cypress run --headed --no-exit --e2e",
+    "cy:shortcut": "cypress run --headed",
     "test-e2e": "npm-run-all --parallel start cy:shortcut",
     "test-integration": "jest",
     "test": "npm-run-all test:*"
