@@ -24,3 +24,5 @@ npm run build
 ```
 
 Running this command will generate a directory called `dist/` that will contain HTML and JS files comprising the built application.  These are the files you'll want to package for release and deployment in the CI/CD pipeline you build for the app.
+
+Test if the workflow is working fine
