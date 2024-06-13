@@ -1,9 +1,8 @@
-name: Build, Test and Deploy on Push to Main
+name: Deploy to GH Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -11,7 +10,7 @@ jobs:
     with:
       upload-pages-artifact: true
 
-  deploy:
+  deploy-to-pages:
     runs-on: ubuntu-latest
     needs: build-and-test
     permissions:
@@ -21,11 +20,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: dist/
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         id: deployment
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
